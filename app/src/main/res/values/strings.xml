@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">Github User\'s Search</string>
+    <string name="searchbar_hint">Find Github profile</string>
+    <string name="tab_connect_1">followers</string>
+    <string name="tab_connect_2">following</string>
+    <string name="detail_profile">Detail Profile</string>
+
+</resources>
