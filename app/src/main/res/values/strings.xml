@@ -1,8 +1,12 @@
 <resources>
     <string name="app_name">Github User\'s Search</string>
     <string name="searchbar_hint">Find Github profile</string>
-    <string name="tab_connect_1">followers</string>
-    <string name="tab_connect_2">following</string>
+    <string name="tab_connect_1">Followers</string>
+    <string name="tab_connect_2">Following</string>
     <string name="detail_profile">Detail Profile</string>
+    <string name="dark_mode">Dark Mode</string>
+    <string name="menu_1">Menu 1</string>
+    <string name="light">Light</string>
+    <string name="dark">Dark</string>
 
 </resources>

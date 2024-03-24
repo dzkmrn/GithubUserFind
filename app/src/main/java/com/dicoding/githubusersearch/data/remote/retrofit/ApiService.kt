@@ -1,8 +1,8 @@
-package com.dicoding.githubusersearch.data.retrofit
+package com.dicoding.githubusersearch.data.remote.retrofit
 
-import com.dicoding.githubusersearch.data.response.DetailUserResponse
-import com.dicoding.githubusersearch.data.response.GithubResponse
-import com.dicoding.githubusersearch.data.response.ItemsItem
+import com.dicoding.githubusersearch.data.remote.response.DetailUserResponse
+import com.dicoding.githubusersearch.data.remote.response.GithubResponse
+import com.dicoding.githubusersearch.data.remote.response.ItemsItem
 import retrofit2.Call
 import retrofit2.http.*
 

@@ -14,6 +14,7 @@
     >
 
     <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/box_name"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:padding="8dp">
@@ -22,9 +23,9 @@
             android:id="@+id/img_item_photo"
             android:layout_width="40dp"
             android:layout_height="40dp"
+            android:layout_marginStart="10dp"
             android:layout_marginTop="5dp"
             android:layout_marginBottom="5dp"
-            android:layout_marginStart="10dp"
             android:scaleType="centerCrop"
             card_view:layout_constraintBottom_toBottomOf="parent"
             card_view:layout_constraintStart_toStartOf="parent"
@@ -37,15 +38,23 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
-            android:layout_marginEnd="8dp"
             android:layout_toEndOf="@id/img_item_photo"
             android:textSize="16sp"
             android:textStyle="bold"
             card_view:layout_constraintBottom_toBottomOf="@+id/img_item_photo"
-            card_view:layout_constraintEnd_toEndOf="parent"
             card_view:layout_constraintStart_toEndOf="@+id/img_item_photo"
             card_view:layout_constraintTop_toTopOf="@+id/img_item_photo"
             tools:text="ProfileName" />
+
+        <ImageView
+            android:id="@+id/iv_bookmark"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:src="@drawable/baseline_bookmark_24"
+            android:visibility="visible"
+            card_view:layout_constraintBottom_toBottomOf="parent"
+            card_view:layout_constraintEnd_toEndOf="parent"
+            card_view:layout_constraintTop_toTopOf="parent" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.cardview.widget.CardView>

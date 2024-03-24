@@ -4,14 +4,17 @@ import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.dicoding.githubusersearch.data.response.GithubResponse
-import com.dicoding.githubusersearch.data.response.ItemsItem
-import com.dicoding.githubusersearch.data.retrofit.ApiConfig
+import androidx.lifecycle.asLiveData
+import androidx.lifecycle.viewModelScope
+import com.dicoding.githubusersearch.data.remote.response.GithubResponse
+import com.dicoding.githubusersearch.data.remote.response.ItemsItem
+import com.dicoding.githubusersearch.data.remote.retrofit.ApiConfig
+import kotlinx.coroutines.launch
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
-class MainViewModel : ViewModel() {
+class MainViewModel(private val pref: SettingPreferences) : ViewModel() {
 
     private val _githubresponse = MutableLiveData<GithubResponse>()
     val githubResponse : LiveData<GithubResponse> = _githubresponse
@@ -36,7 +39,7 @@ class MainViewModel : ViewModel() {
             ) {
                 _isLoading.value = false
                 if (response.isSuccessful) {
-                    _listProfile.value = response.body()?.items as List<ItemsItem>?
+                    _listProfile.value = response.body()?.items as List<ItemsItem>
                 } else {
                     Log.e("Fail", "onFailure: ${response.message()}")
                 }
@@ -48,6 +51,16 @@ class MainViewModel : ViewModel() {
                 t.printStackTrace()
             }
         })
+    }
+
+    fun getThemeSettings(): LiveData<Boolean> {
+        return pref.getThemeSetting().asLiveData()
+    }
+
+    fun saveThemeSetting(isDarkModeActive: Boolean) {
+        viewModelScope.launch {
+            pref.saveThemeSetting(isDarkModeActive)
+        }
     }
 
 }

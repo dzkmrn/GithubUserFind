@@ -1,4 +1,4 @@
-package com.dicoding.githubusersearch.data.retrofit
+package com.dicoding.githubusersearch.data.remote.retrofit
 
 import okhttp3.Interceptor
 import okhttp3.OkHttpClient
@@ -9,12 +9,13 @@ import retrofit2.converter.gson.GsonConverterFactory
 class ApiConfig {
     companion object{
         fun getApiService(): ApiService {
+            val authKey: String = com.dicoding.githubusersearch.BuildConfig.AUTH_KEY
             val loggingInterceptor =
                 HttpLoggingInterceptor().setLevel(HttpLoggingInterceptor.Level.BODY)
             val authInterceptor = Interceptor { chain ->
                 val req = chain.request()
                 val requestHeaders = req.newBuilder()
-                    .addHeader("Authorization", "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")
+                    .addHeader("Authorization", authKey)
                     .build()
                 chain.proceed(requestHeaders)
             }
